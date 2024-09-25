@@ -2,31 +2,29 @@
 using System.Windows;
 using WPF.CodeChallenge.DependencyInjection;
 
-namespace WPF.CodeChallenge
+namespace WPF.CodeChallenge;
+
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Gets the service provider.
     /// </summary>
-    public partial class App : Application
+    /// <value>
+    /// The service provider.
+    /// </value>
+    public static ServiceProvider ServiceProvider { get; private set; } = null!;
+
+
+    protected override void OnStartup(StartupEventArgs e)
     {
-        /// <summary>
-        /// Gets the service provider.
-        /// </summary>
-        /// <value>
-        /// The service provider.
-        /// </value>
-        public static ServiceProvider ServiceProvider { get; private set; } = null!;
+        var serviceCollection = new ServiceCollection();
+        RegisterDI.RegisterDIServices(serviceCollection);
+        ServiceProvider = serviceCollection.BuildServiceProvider();
 
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            var serviceCollection = new ServiceCollection();
-            RegisterDI.RegisterDIServices(serviceCollection);
-            ServiceProvider = serviceCollection.BuildServiceProvider();
-
-            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();
-        }
+        var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+        mainWindow.Show();
     }
-
 }
