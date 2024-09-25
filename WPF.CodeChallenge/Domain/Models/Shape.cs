@@ -15,7 +15,7 @@ public abstract class Shape
     /// The type.
     /// </value>
     [JsonProperty("type")]
-    public string Type { get; init; } = null!;
+    public required string Type { get; init; }
 
     /// <summary>
     /// Gets or sets the color.
@@ -23,5 +23,5 @@ public abstract class Shape
     /// <value>
     /// The color.
     /// </value>
-    public Color Color { get; set; }
+    public required Color Color { get; set; }
 }

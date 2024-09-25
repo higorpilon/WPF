@@ -6,18 +6,13 @@ namespace WPF.CodeChallenge.Services
     /// Shape Data Service Factory
     /// </summary>
     /// <seealso cref="IShapeDataServiceFactory" />
-    internal class ShapeDataServiceFactory : IShapeDataServiceFactory
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="ShapeDataServiceFactory"/> class.
+    /// </remarks>
+    /// <param name="shapeDataServices">The shape data services.</param>
+    internal class ShapeDataServiceFactory(IEnumerable<IShapeDataService> shapeDataServices) : IShapeDataServiceFactory
     {
-        private readonly IEnumerable<IShapeDataService> _shapeDataServices;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ShapeDataServiceFactory"/> class.
-        /// </summary>
-        /// <param name="shapeDataServices">The shape data services.</param>
-        public ShapeDataServiceFactory(IEnumerable<IShapeDataService> shapeDataServices)
-        {
-            _shapeDataServices = shapeDataServices;
-        }
+        private readonly IEnumerable<IShapeDataService> _shapeDataServices = shapeDataServices;
 
         /// <inheritdoc />
         public IShapeDataService? GetShapeDataServiceByShapeType(string type)

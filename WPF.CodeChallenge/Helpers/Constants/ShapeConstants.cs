@@ -1,23 +1,22 @@
-﻿namespace WPF.CodeChallenge.Helpers.Constants
+﻿namespace WPF.CodeChallenge.Helpers.Constants;
+
+/// <summary>
+/// Shape Constants
+/// </summary>
+internal static class ShapeConstants
 {
     /// <summary>
-    /// Shape Constants
+    /// The triangle
     /// </summary>
-    internal static class ShapeConstants
-    {
-        /// <summary>
-        /// The triangle
-        /// </summary>
-        public const string Triangle = "triangle";
+    public const string Triangle = "triangle";
 
-        /// <summary>
-        /// The circle
-        /// </summary>
-        public const string Circle = "circle";
+    /// <summary>
+    /// The circle
+    /// </summary>
+    public const string Circle = "circle";
 
-        /// <summary>
-        /// The line
-        /// </summary>
-        public const string Line = "line";
-    }
+    /// <summary>
+    /// The line
+    /// </summary>
+    public const string Line = "line";
 }

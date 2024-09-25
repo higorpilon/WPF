@@ -77,6 +77,7 @@ namespace WPF.CodeChallenge.Services
             return new Circle
             {
                 Center = new Point(circle.Center.X * scale, circle.Center.Y * scale),
+                Type = circle.Type,
                 Radius = circle.Radius * scale,
                 Color = circle.Color,
                 Filled = circle.Filled

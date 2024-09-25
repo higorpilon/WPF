@@ -73,6 +73,7 @@ namespace WPF.CodeChallenge.Services
             return new Line
             {
                 A = new Point(line.A.X * scale, line.A.Y * scale),
+                Type = line.Type,
                 B = new Point(line.B.X * scale, line.B.Y * scale),
                 Color = line.Color
             };
